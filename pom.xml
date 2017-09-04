@@ -40,7 +40,7 @@
 
 	<profiles>
 		<profile>
-			<id>deploy-jboss</id>
+			<id>deploy-jboss6</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -66,6 +66,36 @@
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+
+		<profile>
+			<id>deploy-jboss7</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.wildfly.plugins</groupId>
+						<artifactId>wildfly-maven-plugin</artifactId>
+						<version>1.2.0.Final</version>
+						<executions>
+							<execution>
+								<phase>install</phase>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+								<configuration>
+									<force>true</force>
+									<hostname>localhost</hostname>
+									<port>9990</port>
+									<username>ebeninca</username>
+									<password>6b7fhlet</password>
+									<filename>${project.artifactId}-${project.version}.${project.packaging}</filename>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
 		</profile>
 	</profiles>
 

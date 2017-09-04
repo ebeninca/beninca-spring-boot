@@ -2,14 +2,17 @@ package com.test.beninca;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @EnableAutoConfiguration
-public class Example {
+@SpringBootApplication
+public class Example extends SpringBootServletInitializer {
 
-	@RequestMapping("/beninca")
+	@RequestMapping("/")
 	String home() {
 		return "Hello World!";
 	}
@@ -18,4 +21,6 @@ public class Example {
 		SpringApplication.run(Example.class, args);
 	}
 
+	
+	
 }
