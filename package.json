@@ -1,0 +1,21 @@
+{
+	"name": "beninca-spring-boot",
+	"version": "0.0.1",
+	"description": "Meu demo",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ebeninca/beninca-spring-boot.git"
+	},
+	"keywords": [
+		"spring-boot",
+		"reactjs",
+		"jboss"
+	],
+	"author": "Eduardo Beninca",
+	"license": "Apache-2.0",
+	"homepage": "https://github.com/ebeninca/beninca-spring-boot",
+	"dependencies": {
+		"react": "^15.3.2",
+		"react-dom": "^15.3.2"
+	}
+}
