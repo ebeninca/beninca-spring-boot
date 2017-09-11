@@ -1,13 +1,15 @@
-package com.test.beninca;
+package com.test.beninca.api;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Controller {
+public class ApiController {
 
-	@RequestMapping("/")
+	@RequestMapping("/api")
 	String home() {
-		return "Hello World!";
+		return "rest controller hello TTTT!!!!";
+
 	}
+	
 }

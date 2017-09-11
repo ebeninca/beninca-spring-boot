@@ -24,6 +24,17 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-actuator</artifactId> 
+			</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -49,8 +60,8 @@
 							<goal>install-node-and-npm</goal>
 						</goals>
 						<configuration>
-							<nodeVersion>v4.4.5</nodeVersion>
-							<npmVersion>3.9.2</npmVersion>
+							<nodeVersion>v6.11.3</nodeVersion>
+							<npmVersion>3.10.10</npmVersion>
 						</configuration>
 					</execution>
 					<execution>
@@ -68,6 +79,60 @@
 	</build>
 
 	<profiles>
+		<profile>
+			<id>webpack-dev-server</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.eirslett</groupId>
+						<artifactId>frontend-maven-plugin</artifactId>
+						<version>1.2</version>
+						<configuration>
+							<installDirectory>target</installDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>npm run build</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+								<configuration>
+									<arguments>run build-dev</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>prod</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.eirslett</groupId>
+						<artifactId>frontend-maven-plugin</artifactId>
+						<version>1.2</version>
+						<configuration>
+							<installDirectory>target</installDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<id>npm run build</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+								<configuration>
+									<arguments>run build-prod</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
 		<profile>
 			<id>deploy-jboss6</id>
 			<build>
@@ -87,7 +152,7 @@
 									<hostname>localhost</hostname>
 									<port>9999</port>
 									<username>admin</username>
-									<password>6b7fhlet/</password>
+									<password>XXXXXXXX</password>
 									<filename>${project.artifactId}-${project.version}.${project.packaging}</filename>
 								</configuration>
 							</execution>
@@ -115,8 +180,8 @@
 									<force>true</force>
 									<hostname>localhost</hostname>
 									<port>9990</port>
-									<username>ebeninca</username>
-									<password>6b7fhlet</password>
+									<username>admin</username>
+									<password>XXXXXXX</password>
 									<filename>${project.artifactId}-${project.version}.${project.packaging}</filename>
 								</configuration>
 							</execution>
@@ -124,8 +189,8 @@
 					</plugin>
 				</plugins>
 			</build>
-
 		</profile>
+
 	</profiles>
 
 </project>
